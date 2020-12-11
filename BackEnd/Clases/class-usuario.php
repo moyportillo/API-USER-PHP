@@ -108,7 +108,7 @@
             }
         }
 
-        public function eliminarUsuario(){
+        public static function eliminarUsuario(){
 
         }
             
