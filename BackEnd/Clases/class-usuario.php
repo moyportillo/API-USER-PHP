@@ -103,6 +103,8 @@
                  while($row = $statement->fetch_assoc()) {
                     echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
               }
+                $result = json_encode($statement);
+                echo $result;
             }
         }
 
