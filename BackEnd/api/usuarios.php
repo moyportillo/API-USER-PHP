@@ -19,7 +19,7 @@ switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
         if(isset($_GET['id'])){
             
-            $resultado["mensaje"] = "Retornar el usuario con el id: ".$_GET['id'];
+            Usuario::obtenerUsuario($_GET['id']);
             echo json_encode($resultado);
         }else{
             $resultado["mensaje"] = "Retornar todos los usuarios";
