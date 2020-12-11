@@ -81,8 +81,29 @@
             }
         }
 
-        public function obtenerUsuario(){
-
+        public static function obtenerUsuario($id){
+            $servername = "127.0.0.1";
+            $username = "root";
+            $password = "01001101Moy*r2-d2";
+            $dbname = "banco";
+            
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            
+            // Check connection
+            if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+            }
+            
+            $sql = "SELECT * from clientes where user_cod = ?";
+            $statement = $conn->prapere($sql);
+            $statement->bind_param("s", $id);
+            $statement->execute();
+            if($statement->num_rows > 0){
+                 while($row = $statement->fetch_assoc()) {
+                    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+              }
+            }
         }
 
         public function eliminarUsuario(){
